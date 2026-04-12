@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toolsa Style Landing Page</title>
+    <meta
+      name="description"
+      content="Industrial equipment rental landing page inspired by Toolsa, built as a standalone HTML file."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --yellow: #ffcc00;
+        --yellow-soft: #ffe366;
+        --blue: #0044ff;
+        --black: #141414;
+        --white: #ffffff;
+        --gray-50: #f7f7f7;
+        --gray-100: #f0f0f0;
+        --gray-200: #dddddd;
+        --gray-500: #737373;
+        --gray-800: #2a2a2a;
+        --shadow: 0 20px 50px rgba(20, 20, 20, 0.12);
+        --radius: 16px;
+        --container: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--black);
+        background:
+          radial-gradient(circle at top left, rgba(255, 204, 0, 0.18), transparent 28%),
+          linear-gradient(180deg, #ffffff 0%, #fffdf3 42%, #f7f7f7 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        font: inherit;
+      }
+
+      .container {
+        width: min(calc(100% - 32px), var(--container));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 78px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Sora", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+
+      .brand-badge {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: var(--yellow);
+        color: var(--black);
+        box-shadow: inset 0 -4px 0 rgba(20, 20, 20, 0.12);
+      }
+
+      .brand small {
+        display: block;
+        font-family: "Manrope", sans-serif;
+        font-size: 0.76rem;
+        font-weight: 700;
+        color: var(--gray-500);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a:not(.btn) {
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 600;
+        color: var(--gray-800);
+      }
+
+      .nav-links a:not(.btn):hover {
+        background: rgba(20, 20, 20, 0.05);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border: 0;
+        border-radius: 12px;
+        font-family: "Sora", sans-serif;
+        font-weight: 700;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--yellow);
+        color: var(--black);
+        box-shadow: 0 12px 24px rgba(255, 204, 0, 0.25);
+      }
+
+      .btn-primary:hover {
+        background: var(--yellow-soft);
+      }
+
+      .btn-dark {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--black);
+        border: 2px solid rgba(20, 20, 20, 0.14);
+      }
+
+      .hero {
+        padding: 48px 0 56px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 18px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 204, 0, 0.18);
+        color: var(--black);
+        font-size: 0.84rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin: 0;
+        font-family: "Sora", sans-serif;
+        letter-spacing: -0.04em;
+      }
+
+      h1 {
+        max-width: 12ch;
+        font-size: clamp(2.6rem, 6vw, 5.1rem);
+        line-height: 0.96;
+      }
+
+      .lead {
+        max-width: 62ch;
+        margin: 22px 0 0;
+        color: var(--gray-800);
+        font-size: 1.06rem;
+        line-height: 1.75;
+      }
+
+      .hero-actions,
+      .stats,
+      .categories,
+      .feature-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 28px 0 24px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .stat-card,
+      .panel,
+      .category-card,
+      .feature-card,
+      .quote-box,
+      .contact-card {
+        border-radius: var(--radius);
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(20, 20, 20, 0.08);
+        box-shadow: var(--shadow);
+      }
+
+      .stat-card,
+      .category-card,
+      .feature-card {
+        padding: 22px;
+      }
+
+      .stat-card strong {
+        display: block;
+        margin-bottom: 6px;
+        font-family: "Sora", sans-serif;
+        font-size: 1.5rem;
+      }
+
+      .stat-card span,
+      .section-head p,
+      .category-card p,
+      .feature-card p,
+      .quote-box p,
+      .contact-card p {
+        color: var(--gray-500);
+        line-height: 1.7;
+      }
+
+      .panel {
+        overflow: hidden;
+        min-height: 100%;
+        background:
+          linear-gradient(135deg, rgba(20, 20, 20, 0.96), rgba(45, 45, 45, 0.96)),
+          #1f1f1f;
+        color: var(--white);
+      }
+
+      .hero-card-top,
+      .hero-caption {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 22px 24px;
+      }
+
+      .hero-card-top {
+        padding-bottom: 16px;
+      }
+
+      .pill,
+      .mini-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .pill {
+        background: var(--yellow);
+        color: var(--black);
+      }
+
+      .mini-pill {
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .machine-stage {
+        padding: 18px 24px 24px;
+      }
+
+      .machine-frame {
+        position: relative;
+        min-height: 340px;
+        border-radius: 20px;
+        background:
+          radial-gradient(circle at 25% 18%, rgba(255, 204, 0, 0.28), transparent 20%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        overflow: hidden;
+      }
+
+      .machine-ground {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 74px;
+        background:
+          linear-gradient(180deg, rgba(255, 204, 0, 0.04), rgba(255, 204, 0, 0.12)),
+          repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.04) 0,
+            rgba(255, 255, 255, 0.04) 8px,
+            transparent 8px,
+            transparent 16px
+          );
+      }
+
+      .machine-body {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 290px;
+        height: 190px;
+        transform: translate(-50%, -38%);
+      }
+
+      .arm,
+      .arm::after,
+      .bucket,
+      .base {
+        background: var(--yellow);
+      }
+
+      .arm {
+        position: absolute;
+        left: 68px;
+        top: 48px;
+        width: 128px;
+        height: 18px;
+        border-radius: 999px;
+        transform: rotate(-18deg);
+        transform-origin: left center;
+        box-shadow: inset 0 -3px 0 rgba(20, 20, 20, 0.12);
+      }
+
+      .arm::after {
+        content: "";
+        position: absolute;
+        right: -42px;
+        top: -4px;
+        width: 54px;
+        height: 16px;
+        border-radius: 999px;
+        transform: rotate(34deg);
+      }
+
+      .bucket {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        width: 38px;
+        height: 42px;
+        clip-path: polygon(8% 0%, 100% 0%, 84% 100%, 0% 84%);
+      }
+
+      .cab {
+        position: absolute;
+        left: 112px;
+        top: 68px;
+        width: 72px;
+        height: 54px;
+        border-radius: 12px 12px 8px 8px;
+        background: #2d2d2d;
+        border: 6px solid var(--yellow);
+      }
+
+      .base {
+        position: absolute;
+        left: 78px;
+        top: 118px;
+        width: 146px;
+        height: 36px;
+        border-radius: 18px;
+      }
+
+      .track {
+        position: absolute;
+        top: 148px;
+        width: 120px;
+        height: 28px;
+        border-radius: 999px;
+        background: #0f0f0f;
+        border: 4px solid #2b2b2b;
+      }
+
+      .track.left {
+        left: 38px;
+      }
+
+      .track.right {
+        right: 38px;
+      }
+
+      .hero-caption {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .hero-caption strong {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--white);
+      }
+
+      .section {
+        padding: 84px 0;
+      }
+
+      .section-head {
+        max-width: 740px;
+        margin-bottom: 30px;
+      }
+
+      .section h2 {
+        font-size: clamp(2rem, 4.6vw, 3.4rem);
+        line-height: 1.02;
+      }
+
+      .categories {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .category-icon {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+        background: rgba(255, 204, 0, 0.18);
+        font-family: "Sora", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .category-card h3,
+      .feature-card h3 {
+        margin-bottom: 10px;
+        font-size: 1.06rem;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.94fr) minmax(280px, 0.82fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .quote-box {
+        padding: 28px;
+        background: linear-gradient(180deg, rgba(255, 204, 0, 0.9), rgba(255, 214, 77, 0.9));
+      }
+
+      .quote-box h3 {
+        margin-bottom: 14px;
+        font-size: 1.7rem;
+        line-height: 1.1;
+      }
+
+      .quote-box p {
+        margin: 0 0 18px;
+        color: rgba(20, 20, 20, 0.82);
+      }
+
+      .contact-card {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.85fr);
+        gap: 22px;
+        padding: 28px;
+      }
+
+      .contact-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .contact-list span {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+      }
+
+      .form-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .field {
+        width: 100%;
+        min-height: 52px;
+        padding: 14px 16px;
+        border: 1px solid rgba(20, 20, 20, 0.12);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      textarea.field {
+        min-height: 132px;
+        resize: vertical;
+      }
+
+      .footer {
+        padding: 28px 0 44px;
+        color: var(--gray-500);
+        text-align: center;
+      }
+
+      @media (max-width: 1024px) {
+        .hero-grid,
+        .split,
+        .contact-card {
+          grid-template-columns: 1fr;
+        }
+
+        .categories {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          align-items: flex-start;
+          padding: 14px 0;
+          flex-direction: column;
+        }
+
+        .hero {
+          padding-top: 28px;
+        }
+
+        .stats,
+        .categories {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 66px 0;
+        }
+
+        .hero-caption {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="#top" class="brand" aria-label="Toolsa style landing page home">
+          <span class="brand-badge">T</span>
+          <span>
+            Toolsa
+            <small>Equipment Rental Since 1993</small>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#categories">Categories</a>
+          <a href="#why-us">Why Toolsa</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact" class="btn btn-outline">Get Quote</a>
+          <a href="https://wa.me/" class="btn btn-primary">WhatsApp Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow">Construction Equipment Rental in Dubai</p>
+            <h1>Heavy-duty equipment. Fast delivery. Reliable rental support.</h1>
+            <p class="lead">
+              A standalone landing page inspired by Toolsa's visual direction: bold yellow CTAs,
+              industrial black contrast, clean white surfaces, and a practical rental-first layout
+              for categories, trust signals, and lead capture.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">Request a Quote</a>
+              <a href="#categories" class="btn btn-dark">Browse Categories</a>
+            </div>
+
+            <div class="stats">
+              <article class="stat-card">
+                <strong>30+</strong>
+                <span>Years serving contractors, facilities teams, and job sites across Dubai.</span>
+              </article>
+              <article class="stat-card">
+                <strong>300+</strong>
+                <span>Rental-ready machines, tools, access equipment, and support units.</span>
+              </article>
+              <article class="stat-card">
+                <strong>Same Day</strong>
+                <span>Fast turnaround for urgent site requirements and repeat rental requests.</span>
+              </article>
+            </div>
+          </div>
+
+          <article class="panel">
+            <div class="hero-card-top">
+              <span class="pill">Rental Ready</span>
+              <span class="mini-pill">Dubai, UAE</span>
+            </div>
+
+            <div class="machine-stage">
+              <div class="machine-frame" aria-hidden="true">
+                <div class="machine-body">
+                  <div class="arm"></div>
+                  <div class="bucket"></div>
+                  <div class="cab"></div>
+                  <div class="base"></div>
+                  <div class="track left"></div>
+                  <div class="track right"></div>
+                </div>
+                <div class="machine-ground"></div>
+              </div>
+            </div>
+
+            <div class="hero-caption">
+              <div>
+                <strong>Built for Construction</strong>
+                <span>Industrial visual language with bold, high-contrast calls to action.</span>
+              </div>
+              <div>
+                <strong>Lead-Focused Layout</strong>
+                <span>Categories, proof points, and contact form above the fold strategy.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="categories">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Rental Categories</p>
+            <h2>Popular equipment groups laid out like the Toolsa landing page.</h2>
+            <p>
+              These cards reflect the categories surfaced on the source site, translated into a
+              single portable HTML page.
+            </p>
+          </div>
+
+          <div class="categories">
+            <article class="category-card">
+              <div class="category-icon">AW</div>
+              <h3>Aerial Work Platforms</h3>
+              <p>Scissor lifts, boom lifts, and access equipment for indoor and outdoor work at height.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">PG</div>
+              <h3>Power Generation</h3>
+              <p>Portable and site-ready generators for backup power, events, and construction projects.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">AT</div>
+              <h3>Compressors & Air Tools</h3>
+              <p>Air compressors and compatible pneumatic tools for fabrication, finishing, and maintenance.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">CM</div>
+              <h3>Concrete & Masonry</h3>
+              <p>Cutters, breakers, mixers, vibrators, and site tools for structural and finishing work.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">CL</div>
+              <h3>Cleaning Equipment</h3>
+              <p>Scrubbers, washers, and industrial cleaning machines for facilities and project handover.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">PT</div>
+              <h3>Pumps & Tanks</h3>
+              <p>Drainage, transfer, and fluid-handling equipment for dewatering and temporary site support.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">WE</div>
+              <h3>Welding Equipment</h3>
+              <p>Reliable welding and fabrication support tools for workshop and field applications.</p>
+            </article>
+            <article class="category-card">
+              <div class="category-icon">LE</div>
+              <h3>Lighting Equipment</h3>
+              <p>Portable lighting systems and site illumination for night work and low-light operations.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="why-us">
+        <div class="container split">
+          <div>
+            <div class="section-head">
+              <p class="eyebrow">Why This Matches</p>
+              <h2>The same visual DNA, rebuilt as a clean standalone project.</h2>
+              <p>
+                The page keeps the Toolsa-inspired palette and hierarchy: black and white structure,
+                strong yellow actions, equipment-first messaging, trust metrics, category browsing,
+                and a direct quote CTA.
+              </p>
+            </div>
+
+            <div class="feature-grid">
+              <article class="feature-card">
+                <h3>Button palette alignment</h3>
+                <p>Primary calls to action use the same bright yellow brand accent with dark text and high contrast.</p>
+              </article>
+              <article class="feature-card">
+                <h3>Industrial composition</h3>
+                <p>Large bold typography, machine-led hero styling, white content cards, and practical section sequencing.</p>
+              </article>
+              <article class="feature-card">
+                <h3>Portable project structure</h3>
+                <p>No framework or build step required. You can open the page directly or publish it as static HTML.</p>
+              </article>
+            </div>
+          </div>
+
+          <aside class="quote-box">
+            <h3>Need the homepage cloned even closer?</h3>
+            <p>
+              This project gives you a clean base. We can keep iterating toward a tighter visual
+              match section by section if you want.
+            </p>
+            <a href="#contact" class="btn btn-dark">Refine This Mockup</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="contact-card">
+            <div>
+              <p class="eyebrow">Get a Quote</p>
+              <h2>Request equipment pricing, availability, and delivery details.</h2>
+              <p>
+                The real site uses direct-action buttons and enquiry prompts, so this version keeps
+                that same conversion-focused ending with a quote form and contact details.
+              </p>
+
+              <div class="contact-list">
+                <span>Phone: +971 4 000 0000</span>
+                <span>Email: rentals@example.ae</span>
+                <span>Location: Dubai, United Arab Emirates</span>
+              </div>
+            </div>
+
+            <form class="form-grid">
+              <input class="field" type="text" placeholder="Your name" />
+              <input class="field" type="email" placeholder="Email address" />
+              <input class="field" type="text" placeholder="Equipment needed" />
+              <textarea class="field" placeholder="Tell us the jobsite requirement, rental duration, or delivery area"></textarea>
+              <button class="btn btn-primary" type="submit">Send Enquiry</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Standalone Toolsa-inspired landing page project.</div>
+    </footer>
+  </body>
+</html>
