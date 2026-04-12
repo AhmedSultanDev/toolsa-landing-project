@@ -1,0 +1,25 @@
+{
+  "name": "toolsa-landing-project",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.57.4",
+    "@sveltejs/kit": "^2.48.4",
+    "svelte": "^5.55.3"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^6.1.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "supabase": "^2.89.1",
+    "svelte-check": "^4.3.3",
+    "vite": "^8.0.8"
+  }
+}
