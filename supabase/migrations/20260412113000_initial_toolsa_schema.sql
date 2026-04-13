@@ -123,7 +123,7 @@ values
     'air-compressor-500-l',
     'Great belt driven technology developed for simple, dependable site performance in Dubai conditions.',
     180,
-    'https://toolsatool.com/uploads/posts/2aefbfc676823ce1a39d8eb7dbf11f2f.jpg',
+    '/product-images/air-compressor-500-l.jpg',
     true
   ),
   (
@@ -132,7 +132,7 @@ values
     'rotary-hammer-drill',
     '26mm SDS rotary hammer drill suited for concrete, anchor work, and fast-paced site tasks.',
     85,
-    'https://toolsatool.com/uploads/posts/31e7a666852c9c2b450c020525d91fbe.jpg',
+    '/product-images/rotary-hammer-drill.png',
     true
   ),
   (
@@ -141,7 +141,7 @@ values
     'random-orbital-sander',
     'Smooth finishing performance for workshop, fit-out, and decorating crews across Dubai.',
     65,
-    'https://toolsatool.com/uploads/posts/e06e2d7a57d1f25eedddb37f3845ea63.jpg',
+    '/product-images/random-orbital-sander.webp',
     true
   )
 on conflict (slug) do update

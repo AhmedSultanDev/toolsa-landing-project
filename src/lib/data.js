@@ -31,7 +31,7 @@ export const fallbackFeaturedProducts = [
     description:
       "Great belt driven technology developed for simple, dependable site performance in Dubai conditions.",
     price: "AED 180",
-    image: "https://toolsatool.com/uploads/posts/2aefbfc676823ce1a39d8eb7dbf11f2f.jpg",
+    image: "/product-images/air-compressor-500-l.jpg",
   },
   {
     category: "Power Tools",
@@ -40,7 +40,7 @@ export const fallbackFeaturedProducts = [
     description:
       "26mm SDS rotary hammer drill suited for concrete, anchor work, and fast-paced site tasks.",
     price: "AED 85",
-    image: "https://toolsatool.com/uploads/posts/31e7a666852c9c2b450c020525d91fbe.jpg",
+    image: "/product-images/rotary-hammer-drill.png",
   },
   {
     category: "Power Tools",
@@ -49,7 +49,7 @@ export const fallbackFeaturedProducts = [
     description:
       "Smooth finishing performance for workshop, fit-out, and decorating crews across Dubai.",
     price: "AED 65",
-    image: "https://toolsatool.com/uploads/posts/e06e2d7a57d1f25eedddb37f3845ea63.jpg",
+    image: "/product-images/random-orbital-sander.webp",
   },
 ];
 

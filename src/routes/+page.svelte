@@ -10,6 +10,18 @@
 
   let mobileMenuOpen = false;
   const year = new Date().getFullYear();
+  const categoryDescriptions = {
+    "Access Platforms": "Indoor and outdoor access gear for safe elevated work.",
+    "Power Generation": "Reliable site power for outages, events, and heavy-duty jobs.",
+    "Air Compressors & Air Tools": "Compressed air solutions for workshops and active job sites.",
+    Cleaning: "Industrial cleaning machines for handover, facilities, and maintenance teams.",
+    "Power Tools": "Portable site essentials for drilling, breaking, and finishing tasks.",
+    Compaction: "Plate compactors and paving support for ground and surface prep.",
+    Lighting: "Portable lighting towers and temporary illumination systems.",
+    "Welding Equipment": "Workshop-ready welding support for fabrication and repair work.",
+  };
+
+  $: leadProduct = data.featuredProducts?.[0];
 
   function closeMobileMenu() {
     mobileMenuOpen = false;
@@ -69,26 +81,64 @@
 <main id="top">
   <section class="hero">
     <div class="container">
-      <div class="hero-inner">
-        <div class="hero-kicker">Since 1993</div>
-        <h1>Construction Equipment Rental in Dubai</h1>
-        <p class="hero-tagline">Gear Up, Stress Down</p>
-        <p class="hero-copy">
-          Premium tools and machinery for construction, industrial, and commercial projects.
-          Trusted by Dubai's leading contractors for over 30 years.
-        </p>
+      <div class="hero-grid">
+        <div class="hero-inner">
+          <div class="hero-kicker">Since 1993</div>
+          <h1>Construction Equipment Rental in Dubai</h1>
+          <p class="hero-tagline">Gear Up, Stress Down</p>
+          <p class="hero-copy">
+            Premium tools and machinery for construction, industrial, and commercial projects.
+            Trusted by Dubai's leading contractors for over 30 years.
+          </p>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Request a Quote</a>
-          <a
-            class="btn-whatsapp"
-            href={contact.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            WhatsApp Us
-          </a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            <a
+              class="btn-whatsapp"
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp Us
+            </a>
+          </div>
+
+          <div class="hero-highlights" aria-label="Service highlights">
+            <div class="hero-highlight">
+              <strong>Fast dispatch</strong>
+              <span>Quick turnarounds for urgent site needs across Dubai.</span>
+            </div>
+            <div class="hero-highlight">
+              <strong>Flexible rentals</strong>
+              <span>Daily, weekly, and longer-term hire tailored to the job.</span>
+            </div>
+            <div class="hero-highlight">
+              <strong>Site support</strong>
+              <span>Dependable equipment plus responsive team follow-through.</span>
+            </div>
+          </div>
         </div>
+
+        {#if leadProduct}
+          <aside class="hero-product-card">
+            <div class="hero-product-label">Featured for fast dispatch</div>
+            <div class="hero-product-media">
+              <img src={leadProduct.image} alt={leadProduct.title} />
+            </div>
+            <div class="hero-product-content">
+              <span class="badge">{leadProduct.category}</span>
+              <h2>{leadProduct.title}</h2>
+              <p>{leadProduct.description}</p>
+
+              <div class="hero-product-meta">
+                {#if leadProduct.price}
+                  <p class="price">{leadProduct.price} <span>/day</span></p>
+                {/if}
+                <span class="dispatch-pill">Ready for quote requests</span>
+              </div>
+            </div>
+          </aside>
+        {/if}
       </div>
     </div>
   </section>
@@ -109,6 +159,7 @@
   <section class="section-padding" id="categories">
     <div class="container">
       <div class="section-title">
+        <span class="section-eyebrow">Rental categories</span>
         <h2>Equipment Categories</h2>
         <p>
           Browse our comprehensive range of construction and industrial equipment available for
@@ -119,7 +170,9 @@
       <div class="categories-grid">
         {#each data.categories as category}
           <a class="category-card" href="#featured">
+            <span class="category-index">0{Math.min(data.categories.indexOf(category) + 1, 9)}</span>
             <h3>{category.name}</h3>
+            <p>{categoryDescriptions[category.name] ?? "Reliable rental equipment for active projects."}</p>
           </a>
         {/each}
       </div>
@@ -133,6 +186,7 @@
   <section class="section-padding featured" id="featured">
     <div class="container">
       <div class="section-title">
+        <span class="section-eyebrow">Popular picks</span>
         <h2>Featured Equipment</h2>
         <p>Explore our most popular rental equipment, ready for immediate dispatch.</p>
       </div>
@@ -147,9 +201,12 @@
               <span class="badge">{product.category}</span>
               <h3>{product.title}</h3>
               <p>{product.description}</p>
-              {#if product.price}
-                <p class="price">{product.price} <span>/day</span></p>
-              {/if}
+              <div class="product-footer">
+                {#if product.price}
+                  <p class="price">{product.price} <span>/day</span></p>
+                {/if}
+                <a class="product-link" href="#contact">Request pricing</a>
+              </div>
             </div>
           </article>
         {/each}
@@ -165,6 +222,7 @@
     <div class="container">
       <div class="why-grid">
         <div class="why-copy">
+          <span class="section-eyebrow">Why contractors choose us</span>
           <h2>Why Choose Toolsa?</h2>
           <p>
             For over three decades, we've been Dubai's go-to partner for reliable equipment
