@@ -1,0 +1,26 @@
+[
+    {
+        "id":  "ef1376f0-c1e1-42bc-99df-2219d876edf2",
+        "name":  "Air Compressor 500 L",
+        "slug":  "air-compressor-500-l",
+        "image_url":  "https://toolsatool.com/uploads/posts/2aefbfc676823ce1a39d8eb7dbf11f2f.jpg",
+        "local_file":  "assets/product-images/air-compressor-500-l.jpg",
+        "is_featured":  true
+    },
+    {
+        "id":  "e1838f43-bfb3-4397-97e3-42430cf2787f",
+        "name":  "Random Orbital Sander",
+        "slug":  "random-orbital-sander",
+        "image_url":  "https://toolsatool.com/uploads/posts/e06e2d7a57d1f25eedddb37f3845ea63.jpg",
+        "local_file":  "assets/product-images/random-orbital-sander.jpg",
+        "is_featured":  true
+    },
+    {
+        "id":  "7f0e52ff-4aa4-43a6-82d6-47b139da0f42",
+        "name":  "Rotary Hammer Drill",
+        "slug":  "rotary-hammer-drill",
+        "image_url":  "https://toolsatool.com/uploads/posts/31e7a666852c9c2b450c020525d91fbe.jpg",
+        "local_file":  "assets/product-images/rotary-hammer-drill.jpg",
+        "is_featured":  true
+    }
+]

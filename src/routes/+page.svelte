@@ -20,6 +20,21 @@
     Lighting: "Portable lighting towers and temporary illumination systems.",
     "Welding Equipment": "Workshop-ready welding support for fabrication and repair work.",
   };
+  const processSteps = [
+    {
+      title: "Tell us the job",
+      copy: "Share the equipment type, duration, and delivery needs for your site.",
+    },
+    {
+      title: "Get a fast quote",
+      copy: "We match the right machine and rental plan to your scope and timeline.",
+    },
+    {
+      title: "Receive and get to work",
+      copy: "Fast dispatch and dependable support keep your project moving without delays.",
+    },
+  ];
+  const trustItems = ["30+ years in Dubai", "Flexible rental terms", "Fast response on WhatsApp"];
 
   $: leadProduct = data.featuredProducts?.[0];
 
@@ -116,6 +131,12 @@
               <strong>Site support</strong>
               <span>Dependable equipment plus responsive team follow-through.</span>
             </div>
+          </div>
+
+          <div class="hero-trust">
+            {#each trustItems as item}
+              <span>{item}</span>
+            {/each}
           </div>
         </div>
 
@@ -214,6 +235,26 @@
 
       <div class="section-link">
         <a class="btn btn-secondary" href="#contact">Browse All Equipment</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding process-section" aria-labelledby="rental-process-title">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-eyebrow">How it works</span>
+        <h2 id="rental-process-title">A Simple Rental Process Built for Busy Sites</h2>
+        <p>From first message to delivery, the flow stays straightforward and quick.</p>
+      </div>
+
+      <div class="process-grid">
+        {#each processSteps as step, index}
+          <article class="process-card">
+            <span class="process-number">0{index + 1}</span>
+            <h3>{step.title}</h3>
+            <p>{step.copy}</p>
+          </article>
+        {/each}
       </div>
     </div>
   </section>
